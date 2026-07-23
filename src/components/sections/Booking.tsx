@@ -1,13 +1,14 @@
 import { site } from '../../config/site'
 import { SectionWrapper } from '../layout/SectionWrapper'
 import { Button } from '../ui/Button'
+import { Reveal } from '../ui/Reveal'
 
 export function Booking() {
   const { enabled, embedUrl } = site.booking
 
   return (
     <SectionWrapper id="agendar">
-      <div className="mx-auto max-w-3xl text-center">
+      <Reveal className="mx-auto max-w-3xl text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent">
           Agendar cita
         </p>
@@ -43,7 +44,7 @@ export function Booking() {
             </Button>
           </div>
         )}
-      </div>
+      </Reveal>
     </SectionWrapper>
   )
 }

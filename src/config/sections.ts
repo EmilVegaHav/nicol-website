@@ -5,7 +5,6 @@ import { About } from '../components/sections/About'
 import { Process } from '../components/sections/Process'
 import { Testimonials } from '../components/sections/Testimonials'
 import { Booking } from '../components/sections/Booking'
-import { Contact } from '../components/sections/Contact'
 
 export interface SectionConfig {
   id: string
@@ -55,13 +54,6 @@ export const sections: SectionConfig[] = [
     id: 'agendar',
     label: 'Agendar',
     component: Booking,
-    enabled: true,
-    showInNav: true,
-  },
-  {
-    id: 'contacto',
-    label: 'Contacto',
-    component: Contact,
     enabled: true,
     showInNav: true,
   },

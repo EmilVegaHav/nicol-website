@@ -1,6 +1,7 @@
 import { site } from '../../config/site'
 import { SectionWrapper } from '../layout/SectionWrapper'
 import { Card } from '../ui/Card'
+import { Reveal, Stagger, StaggerItem } from '../ui/Reveal'
 
 const icons = [
   (
@@ -38,7 +39,7 @@ const icons = [
 export function Services() {
   return (
     <SectionWrapper id="servicios" className="bg-surface">
-      <div className="mb-16 text-center">
+      <Reveal className="mb-16 text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent">
           Áreas de actuación
         </p>
@@ -48,19 +49,21 @@ export function Services() {
         <p className="mx-auto mt-4 max-w-2xl text-brand-primary/70">
           Soluciones integrales en movilidad internacional para particulares y empresas.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {site.services.map((service, i) => (
-          <Card key={service.title}>
-            <div className="mb-4 text-brand-accent">{icons[i % icons.length]}</div>
-            <h3 className="mb-3 font-serif text-xl font-semibold text-brand-primary">
-              {service.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-brand-primary/70">{service.description}</p>
-          </Card>
+          <StaggerItem key={service.title}>
+            <Card>
+              <div className="mb-4 text-brand-accent">{icons[i % icons.length]}</div>
+              <h3 className="mb-3 font-serif text-xl font-semibold text-brand-primary">
+                {service.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-brand-primary/70">{service.description}</p>
+            </Card>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </SectionWrapper>
   )
 }

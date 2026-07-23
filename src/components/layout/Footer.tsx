@@ -12,7 +12,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           <div>
             <div className="mb-6 flex items-center gap-3">
-              <img src="/logo.png" alt={site.brand.name} className="h-12 w-auto brightness-0 invert" />
+              <img
+                src={`${import.meta.env.BASE_URL}logo.png`}
+                alt={site.brand.name}
+                className="h-12 w-auto"
+              />
               <span className="font-serif text-2xl font-semibold">{site.brand.name}</span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-white/70">{site.brand.description}</p>
@@ -26,6 +30,11 @@ export function Footer() {
                 type="instagram"
                 href={site.social.instagram}
                 label="Instagram de Ocana Legal"
+              />
+              <IconButton
+                type="facebook"
+                href={site.social.facebook}
+                label="Facebook de Ocana Legal"
               />
             </div>
           </div>

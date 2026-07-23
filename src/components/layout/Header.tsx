@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getNavSections } from '../../config/sections'
 import { site } from '../../config/site'
-import { Button } from '../ui/Button'
 import { IconButton } from '../ui/IconButton'
 
 export function Header() {
@@ -32,10 +31,11 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-          <img src="/logo.png" alt={site.brand.name} className="h-10 w-auto brightness-0 invert" />
-          <span className="hidden font-serif text-xl font-semibold tracking-wide text-white sm:block">
-            {site.brand.name}
-          </span>
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt={site.brand.name}
+            className="h-10 w-auto"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -57,9 +57,12 @@ export function Header() {
             label="Instagram de Ocana Legal"
             size="sm"
           />
-          <Button href={site.social.whatsapp} variant="primary" className="!px-5 !py-2 !text-xs">
-            WhatsApp
-          </Button>
+          <IconButton
+            type="facebook"
+            href={site.social.facebook}
+            label="Facebook de Ocana Legal"
+            size="sm"
+          />
         </div>
 
         <button
@@ -98,9 +101,11 @@ export function Header() {
                 href={site.social.instagram}
                 label="Instagram de Ocana Legal"
               />
-              <Button href={site.social.whatsapp} variant="primary" className="flex-1">
-                WhatsApp
-              </Button>
+              <IconButton
+                type="facebook"
+                href={site.social.facebook}
+                label="Facebook de Ocana Legal"
+              />
             </div>
           </nav>
         </div>

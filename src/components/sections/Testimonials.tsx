@@ -1,6 +1,7 @@
 import { site } from '../../config/site'
 import { SectionWrapper } from '../layout/SectionWrapper'
 import { Card } from '../ui/Card'
+import { Reveal, Stagger, StaggerItem } from '../ui/Reveal'
 
 function Stars({ count }: { count: number }) {
   return (
@@ -17,29 +18,31 @@ function Stars({ count }: { count: number }) {
 export function Testimonials() {
   return (
     <SectionWrapper id="testimonios" className="bg-surface">
-      <div className="mb-16 text-center">
+      <Reveal className="mb-16 text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent">
           Testimonios
         </p>
         <h2 className="font-serif text-3xl font-semibold text-brand-primary sm:text-4xl">
           Lo que dicen nuestros clientes
         </h2>
-      </div>
+      </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <Stagger className="grid gap-6 md:grid-cols-3">
         {site.testimonials.map((testimonial) => (
-          <Card key={testimonial.name}>
-            <Stars count={testimonial.rating} />
-            <p className="mb-6 text-sm italic leading-relaxed text-brand-primary/80">
-              &ldquo;{testimonial.text}&rdquo;
-            </p>
-            <div>
-              <p className="font-semibold text-brand-primary">{testimonial.name}</p>
-              <p className="text-xs text-brand-primary/50">{testimonial.location}</p>
-            </div>
-          </Card>
+          <StaggerItem key={testimonial.name}>
+            <Card>
+              <Stars count={testimonial.rating} />
+              <p className="mb-6 text-sm italic leading-relaxed text-brand-primary/80">
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
+              <div>
+                <p className="font-semibold text-brand-primary">{testimonial.name}</p>
+                <p className="text-xs text-brand-primary/50">{testimonial.location}</p>
+              </div>
+            </Card>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </SectionWrapper>
   )
 }

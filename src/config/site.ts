@@ -9,6 +9,7 @@ export const site = {
   social: {
     whatsapp: 'https://wa.me/593978913796',
     instagram: 'https://www.instagram.com/ocana.legal?igsh=NGE5dzlsdHpwZ3Ji',
+    facebook: 'https://www.facebook.com/abgnicoleoc/',
   },
 
   booking: {
@@ -121,8 +122,6 @@ export const site = {
   contact: {
     email: 'contacto@occanalegal.com',
     phone: '+593 97 891 3796',
-    formNote:
-      'El formulario estará conectado próximamente. Mientras tanto, contáctanos por WhatsApp.',
   },
 
   footer: {
