@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { site } from '../../config/site'
 import { easeOut, fadeUp, staggerContainer } from '../../lib/motion'
+import { AnimatedStat } from '../ui/AnimatedStat'
 import { Button } from '../ui/Button'
 
 export function Hero() {
@@ -62,14 +63,16 @@ export function Hero() {
             variants={staggerContainer}
             transition={{ staggerChildren: 0.1 }}
           >
-            {site.stats.map((stat) => (
+            {site.stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 className="border-l-2 border-brand-accent pl-4"
                 variants={fadeUp}
                 transition={{ duration: 0.6, ease: easeOut }}
               >
-                <p className="font-serif text-2xl font-bold text-white lg:text-3xl">{stat.value}</p>
+                <p className="font-serif text-2xl font-bold text-white lg:text-3xl">
+                  <AnimatedStat value={stat.value} delay={0.15 + i * 0.12} duration={5} />
+                </p>
                 <p className="mt-1 text-xs text-white/60 sm:text-sm">{stat.label}</p>
               </motion.div>
             ))}
